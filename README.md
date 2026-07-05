@@ -39,7 +39,8 @@ Full breakdown and ranked recommendations are on the **Recommendations** page of
 └── screenshots/
     ├── 01_overview.png
     ├── 02_risk_drivers.png
-    └── 03_recommendations.png
+    ├── 03_recommendations.png
+    └── 04_data_model.png
 ```
 
 ## Dashboard Preview
@@ -53,9 +54,15 @@ Full breakdown and ranked recommendations are on the **Recommendations** page of
 **Recommendations** — highest-risk segments and actions ranked by evidence strength
 ![Recommendations](screenshots/03_recommendations.png)
 
+## Data Model
+
+Star schema with a central `Fact_Attrition` table and four dimension tables (`Dim_JobRole`, `Dim_Department`, `Dim_EducationField`, `Dim_Demographics`), each joined on a 1-to-many relationship.
+
+![Data Model](screenshots/04_data_model.png)
+
 ## Tools & Techniques
 
-- **Power BI** — data modeling (star schema: Fact_Attrition + Dim_Department, Dim_JobRole), DAX measures, interactive slicers, multi-page report
+- **Power BI** — star schema data modeling (see above), DAX measures, interactive slicers, multi-page report
 - **SQL** — aggregation joins across fact/dimension tables to surface attrition by department and job role
 - **Python (pandas)** — employee experience-level segmentation (Junior/Mid/Senior) via list comprehension, with a vectorized `pd.cut()` alternative for scale
 
